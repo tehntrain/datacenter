@@ -39,9 +39,10 @@ class TestController extends \yii\web\Controller {
         ]);
     }
     
-    public function actionTest3($name){
+    public function actionTest3($name,$lname){
         return $this->render('test3',[
-            'name'=>$name
+            'name'=>$name,
+            'lname'=>$lname
         ]);
     }
 

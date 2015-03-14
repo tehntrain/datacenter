@@ -41,10 +41,10 @@ class Member extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'lname' => 'Lname',
-            'age' => 'Age',
-            'sex' => 'Sex',
+            'name' => 'ชื่อ',
+            'lname' => 'นามสกุล',
+            'age' => 'อายุ(ปี)',
+            'sex' => 'เพศ',
         ];
     }
 }

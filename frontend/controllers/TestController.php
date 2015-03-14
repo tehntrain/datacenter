@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\controllers;
+use frontend\models\Member;
 
 class TestController extends \yii\web\Controller {
 
@@ -61,6 +62,15 @@ class TestController extends \yii\web\Controller {
             'param2'=>$param2
         ]);
         
+    }
+    
+    public function actionMember(){
+        $model = new Member;
+        $model->name = "AAA";
+        $model->lname="จาดยางโทน";
+        $model->age= 35;
+        $model->sex = "2";
+        $model->save();
     }
 
 }

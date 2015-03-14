@@ -78,6 +78,18 @@ class TestController extends \yii\web\Controller {
             echo "Not Insert";
         }
     }
+    
+    public function actionUpdatemember(){
+        
+        $model = Member::findOne(2);
+        $model->name = "ตัวที่ 2 ถูก update";
+        $model->save();
+    }
+    
+    public function actionDelmember(){
+        Member::findOne(2)->delete();
+    }
+    
 
 }
 

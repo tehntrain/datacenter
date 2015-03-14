@@ -6,3 +6,8 @@
 <div class="alert alert-danger">
     AAAA
 </div>
+<?php
+
+ yii::$app->db->open();
+
+?>

@@ -66,11 +66,17 @@ class TestController extends \yii\web\Controller {
     
     public function actionMember(){
         $model = new Member;
-        $model->name = "AAA";
+        
+        $model->name = "BBB";
         $model->lname="จาดยางโทน";
         $model->age= 35;
         $model->sex = "2";
-        $model->save();
+        
+        if($model->save()){
+            echo "Insert Success";
+        }else{
+            echo "Not Insert";
+        }
     }
 
 }

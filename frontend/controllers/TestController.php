@@ -45,6 +45,23 @@ class TestController extends \yii\web\Controller {
             'lname'=>$lname
         ]);
     }
+    
+    public function actionTest4(){
+        
+        return $this->render('test4',[
+            
+        ]);
+        
+    }
+    
+     public function actionTest5($param1=null,$param2=null){
+        
+        return $this->render('test5',[
+            'param1'=>$param1,
+            'param2'=>$param2
+        ]);
+        
+    }
 
 }
 

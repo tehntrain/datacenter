@@ -38,6 +38,7 @@ MaterialAsset::register($this);
                 ['label' => 'Home', 'url' => ['/site/index']],
                 ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'Contact', 'url' => ['/site/contact']],
+                ['label' => 'ทดสอบ', 'url' => ['/test/test4']],
             ];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'สมัครผู้ใช้', 'url' => ['/site/signup']];

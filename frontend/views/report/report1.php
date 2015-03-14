@@ -1,5 +1,6 @@
 <?php
-use yii\grid\GridView;
+//use yii\grid\GridView;
+use kartik\grid\GridView;
 
 $this->params['breadcrumbs'][] = ['label' => 'หน้ารายงานหลัก', 'url' => ['report/index']];
 $this->params['breadcrumbs'][] = 'รายงานตัวชี้วัดที่ 1';
@@ -10,7 +11,10 @@ $this->params['breadcrumbs'][] = 'รายงานตัวชี้วัด�
 </div>
 <?php
 echo GridView::widget([
-    'dataProvider'=>$dataProvider
+    'dataProvider'=>$dataProvider,
+    'panel'=>[
+        'before'=>''
+    ]
 ]);
 
 

@@ -3,17 +3,16 @@
 use miloschuman\highcharts\Highcharts;
 ?>
 <div style="display: none">
-<?php
-
-echo Highcharts::widget([
-    'scripts' => [
-        'highcharts-more',
-        'themes/grid'
-    //'modules/exporting',
-    ]
-]);
-$this->registerJsFile('./js/chart_dial.js');
-?>
+    <?php
+    echo Highcharts::widget([
+        'scripts' => [
+            'highcharts-more',
+            'themes/grid'
+        //'modules/exporting',
+        ]
+    ]);
+    $this->registerJsFile('./js/chart_dial.js');
+    ?>
 </div>
 
 <div class="well well-material">
@@ -24,20 +23,82 @@ $this->registerJsFile('./js/chart_dial.js');
 <div class="alert alert-danger">
     AAAA
 </div>
+<?php 
+$ctitle = "ทดสอบกราฟวงกลม";
+$this->registerJs("$(function () {
+    $('#pie').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '$ctitle'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            data: [
+                ['Firefox',   45.0],
+                ['IE',       26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                ['Others',   0.7]
+            ]
+        }]
+    });
+});
+");
+
+
+?>
+<div id="pie">
+    
+</div>
 <div>
     <?php
+    $month = ['ม.ค.', 'ก.พ.', 'มี.ค.'];
+    $ward1 = [1, 9, 4];
+    $ward2 = [10, 10, 4];
     echo Highcharts::widget([
         'options' => [
-            'title' => ['text' => 'Fruit Consumption'],
+            
+            'chart' => [
+                'type' => 'column'
+            ],
+            
+            'title' => ['text' => 'รายงานอัตราครองเตียง'],
             'xAxis' => [
-                'categories' => ['Apples', 'Bananas', 'Oranges']
+                'categories' => $month
             ],
             'yAxis' => [
-                'title' => ['text' => 'Fruit eaten']
+                'title' => ['text' => 'ราย']
             ],
             'series' => [
-                ['name' => 'Jane', 'data' => [1, 0, 4]],
-                ['name' => 'John', 'data' => [5, 7, 3]]
+                ['name' => 'Ward1', 'data' => $ward1],
+                ['name' => 'Ward2', 'data' => $ward2]
             ]
         ]
     ]);

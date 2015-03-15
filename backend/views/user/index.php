@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
              'email:email',
              'role',
               [
-                'attribute' => 'role',
+                'label' => 'สิทธิ',
                 'value' => function($model) {
                     if (isset($model->arole->role_name)) {
                         return $model->arole->role_name;

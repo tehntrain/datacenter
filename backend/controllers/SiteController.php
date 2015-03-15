@@ -82,9 +82,7 @@ class SiteController extends Controller {
             return $this->goBack();
         } else {
             return $this->render('login', [
-                        'model
-
-        ' => $model,
+                        'model' => $model,
             ]);
         }
     }
